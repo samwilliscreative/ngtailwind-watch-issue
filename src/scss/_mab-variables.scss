@@ -1,0 +1,18 @@
+$color-orange: #f26a2c;
+$color-blue: #3b4153;
+$color-teal: #668891;
+$color-turquoise: #70c1b3;
+$color-grey: rgb(103, 104, 107);
+
+$spacing: (
+  1: 5px,
+  2: 10px,
+  3: 15px,
+  4: 20px,
+  5: 23px,
+  6: 40px,
+);
+
+$border-color: rgba($color-grey, 0.2);
+$border-style: 1px solid $border-color;
+$border-radius: 12px;

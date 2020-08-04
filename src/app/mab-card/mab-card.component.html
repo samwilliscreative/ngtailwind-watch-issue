@@ -1,0 +1,8 @@
+<div class="card" [ngClass]="highlighted ? 'card--highlighted' : ''">
+  <div [ngClass]="txtAlignClass">
+    <ng-content></ng-content>
+  </div>
+  <div [ngClass]="imgAlignClass">
+    <ng-content select=".mab-card-image"></ng-content>
+  </div>
+</div>

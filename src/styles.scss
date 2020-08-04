@@ -1,1 +1,106 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "../node_modules/@angular/material/theming";
+// Plus imports for other components in your app.
+@import "scss/variables";
+@import "scss/mab-variables";
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$custom-styling-primary: mat-palette($mab-blue);
+$custom-styling-accent: mat-palette($mab-orange);
+
+// The warn palette is optional (defaults to red).
+$custom-styling-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$custom-styling-theme: mat-light-theme(
+  $custom-styling-primary,
+  $custom-styling-accent,
+  $custom-styling-warn
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($custom-styling-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// MATERIAL OVERIDE MAB STYLES
+body {
+  .mat-card {
+    padding: map-get($spacing, 5) map-get($spacing, 6);
+    border: $border-style;
+    border-radius: $border-radius;
+
+    &--highlighted {
+      background: var(--card-highlight);
+      border: none;
+    }
+  }
+  .mat-card-title {
+    @extend h3;
+  }
+  .mat-card-content {
+    @extend p;
+  }
+}
+
+// CUSTOM COMPONENT MAB STYLES
+:root {
+  --card-highlight: #{$color-turquoise};
+}
+
+.row {
+  display: flex;
+}
+.col {
+  padding: 0 map-get($spacing, 3);
+}
+
+.left {
+  text-align: left;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
+
+h3 {
+  margin: 0 0 map-get($spacing, 4);
+  font-size: 20px;
+  font-weight: bold;
+}
+p {
+  margin: 0 0 map-get($spacing, 4);
+  font-size: 16px;
+}
+
+.card {
+  padding: map-get($spacing, 5) map-get($spacing, 6);
+  border: $border-style;
+  border-radius: $border-radius;
+
+  &--highlighted {
+    background: var(--card-highlight);
+    border: none;
+  }
+}
